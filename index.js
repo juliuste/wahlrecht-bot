@@ -17,7 +17,7 @@ let currentPoll
 let subscribers
 
 const poll = () => {
-	return wahlrecht.dimap()
+	return wahlrecht.all()
 	.then((r) => sort(r, 'date').reverse()[0])
 }
 

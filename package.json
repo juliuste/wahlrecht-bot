@@ -40,6 +40,10 @@
     "tape": "^4.6.3"
   },
   "scripts": {
+    "start": "forever start --uid wahlrecht-bot -a index.js",
+    "stop": "forever stop wahlrecht-bot",
+    "ssh": "ssh wahlrecht-bot",
+    "deploy": "./deploy"
   },
   "engines": {
     "node": ">=6"

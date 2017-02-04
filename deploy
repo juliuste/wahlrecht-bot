@@ -11,5 +11,4 @@ cd ~/wahlrecht-bot
 npm i
 npm update
 forever stop wahlrecht-bot
-export NODE_ENV=production
 forever start -a --uid wahlrecht-bot index.js"

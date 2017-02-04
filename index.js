@@ -32,11 +32,13 @@ db.get('subs', (err, value) => {
 
 
 const subscribe = (bot) => (msg) => {
-	subscribers.add(msg.chat.id)
-	db.put('subs', Array.from(subscribers))
-	help(bot)(msg)
-	bot.sendMessage(msg.chat.id, "WahlrechtBot aktiviert.")
-	poll().then((p) => send(bot)(msg.chat.id, p))
+	if(!subscribers.has(msg.chat.id)){
+		subscribers.add(msg.chat.id)
+		db.put('subs', Array.from(subscribers))
+		help(bot)(msg)
+		bot.sendMessage(msg.chat.id, "WahlrechtBot aktiviert.")
+		poll().then((p) => send(bot)(msg.chat.id, p))
+	}
 }
 
 const unsubscribe = (bot) => (msg) => {
@@ -71,7 +73,7 @@ const updatePoll = (bot) => () => {
 	})
 }
 
-setInterval(updatePoll(bot), 10000)//60*60*1000)
+setInterval(updatePoll(bot), 60*60*1000)
 
 bot.onText(/\/start/, subscribe(bot))
 bot.onText(/\/stop/, unsubscribe(bot))

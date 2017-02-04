@@ -5,7 +5,6 @@ const round = require('lodash.round')
 const distribution = require('sainte-lague')
 const chart = require('parliament-svg')
 const str = require('virtual-dom-stringify')
-const s2s = require('string-to-stream')
 const converter = require('svg2png')
 
 const instituteNames = {
@@ -78,6 +77,6 @@ const seatText = (poll) => {
 	return text
 }
 
-const chartImage = (poll) => converter(new Buffer(str(chart(chartAdapter(distribution(threshold(poll.results), 598))))), {height: 800, width: 1600})
+const chartImage = (poll) => converter(new Buffer(str(chart(chartAdapter(distribution(threshold(poll.results), 598))))), {height: 1000, width: 2000})
 
 module.exports = {pollText, seatText, chartImage}

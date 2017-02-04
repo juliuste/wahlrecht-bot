@@ -1,0 +1,48 @@
+{
+  "name": "wahlrecht-bot",
+  "description": "Telegram bot for wahlrecht.de german general election (Bundestagswahl) polls",
+  "version": "0.1.0",
+  "keywords": [
+    "wahlrecht",
+    "election",
+    "germany",
+    "polls",
+    "umfrage",
+    "telegram",
+    "bot"
+  ],
+  "author": "Julius Tens <mail@juliustens.de>",
+  "homepage": "https://github.com/juliuste/wahlrecht-bot",
+  "repository": "juliuste/wahlrecht-bot",
+  "bugs": "https://github.com/juliuste/wahlrecht-bot/issues",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "message.js"
+  ],
+  "dependencies": {
+    "config": "^1.25.1",
+    "deep-equal": "^1.0.1",
+    "level": "^1.5.0",
+    "lodash.round": "^4.0.4",
+    "lodash.sortby": "^4.7.0",
+    "moment": "^2.17.1",
+    "node-telegram-bot-api": "^0.26.0",
+    "parliament-svg": "^0.1.0",
+    "sainte-lague": "^0.1.2",
+    "string-to-stream": "^1.1.0",
+    "svg2png": "^4.1.1",
+    "tgfancy": "^0.8.0",
+    "virtual-dom-stringify": "^3.0.1",
+    "wahlrecht": "^0.2.0"
+  },
+  "devDependencies": {
+    "tape": "^4.6.3"
+  },
+  "scripts": {
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "license": "MIT"
+}

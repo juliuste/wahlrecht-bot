@@ -1,0 +1,9 @@
+.DS_Store
+Thumbs.db
+
+config/default.json
+subscribers/*
+
+.nvm-version
+node_modules
+npm-debug.log

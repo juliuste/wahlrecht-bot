@@ -1,6 +1,6 @@
 # wahlrecht-bot
 
-Telegram bot which provides updates on [wahlrecht.de](http://wahlrecht.de) polls for the german Bundestagswahl.
+Telegram bot which provides updates on [wahlrecht.de](http://wahlrecht.de) polls for the german Bundestagswahl. [@WahlrechtBot](https://telegram.me/WahlrechtBot)
 
 [![dependency status](https://img.shields.io/david/juliuste/wahlrecht-bot.svg)](https://david-dm.org/juliuste/wahlrecht-bot)
 [![dev dependency status](https://img.shields.io/david/dev/juliuste/wahlrecht-bot.svg)](https://david-dm.org/juliuste/wahlrecht-bot#info=devDependencies)

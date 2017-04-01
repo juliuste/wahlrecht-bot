@@ -1,7 +1,7 @@
 {
   "name": "wahlrecht-bot",
   "description": "Telegram bot for wahlrecht.de german general election (Bundestagswahl) polls",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "keywords": [
     "wahlrecht",
     "election",

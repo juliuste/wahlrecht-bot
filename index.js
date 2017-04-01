@@ -54,6 +54,7 @@ const help = (bot) => (msg) => {
 const send = (bot) => (id, p) => {
 	bot.sendMessage(id, message.pollText(p))
 	bot.sendMessage(id, message.seatText(p))
+	bot.sendMessage(id, message.coalitionText(p))
 	message.chartImage(p).then((buffer) => bot.sendPhoto(id, buffer, {caption: 'Mögliche Sitzverteilung im deutschen Bundestag'}))
 }
 

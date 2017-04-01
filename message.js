@@ -34,6 +34,20 @@ const colours = {
 	afd: '#0ae',
 	fdp: '#fd0'
 }
+const coalitions = {
+	"Rot-Grün": ['spd', 'grüne'],
+	"Rot-Rot": ['spd', 'linke'],
+	"Rot-Gelb": ['spd', 'fdp'],
+	"Ampel": ['spd', 'grüne', 'fdp'],
+	"Rot-Rot-Grün": ['spd', 'grüne', 'linke'],
+	"Rot-Rot-Gelb": ['spd', 'linke', 'fdp'],
+	"Große Koalition": ['union', 'spd'],
+	"Schwarz-Grün": ['union', 'grüne'],
+	"Schwarz-Gelb": ['union', 'fdp'],
+	"Schwarz-Blau": ['union', 'afd'],
+	"Jamaika": ['union', 'grüne', 'fdp'],
+	"Schwarz-Gelb-Blau": ['union', 'fdp', 'afd']
+}
 
 const threshold = (results) => {
 	const res = Object.assign({}, results)
@@ -57,6 +71,14 @@ const chartAdapter = (results) => {
 
 const toPercent = (result) => round(result*100, 2) + ' %'
 
+const countSeats = (bundestag) => (coalition) => {
+	let seats = 0
+	for(let party of coalitions[coalition]){
+		seats += (bundestag[party] || 0)
+	}
+	return seats
+}
+
 const pollText = (poll) => {
 	let text = instituteNames[poll.institute] + ' - ' + moment(poll.date).format('DD.MM.YYYY') + '\n\n'
 	for(let party in poll.results){
@@ -77,6 +99,19 @@ const seatText = (poll) => {
 	return text
 }
 
+const coalitionText = (poll) => {
+	const bundestag = distribution(threshold(poll.results), 598)
+	let text = 'Mögliche Koalitionen (Sitze und Differenz zur absoluten Mehrheit):\n\n'
+	for(let coalition in coalitions){
+		const seats = countSeats(bundestag)(coalition)
+		if(seats*2 > 598){
+			text += coalition + ': ' + seats + ' Sitze, +' + (seats-(598/2)) + '\n'
+		}
+	}
+	text += '\n'
+	return text
+}
+
 const chartImage = (poll) => converter(new Buffer(str(chart(chartAdapter(distribution(threshold(poll.results), 598))))), {height: 1000, width: 2000})
 
-module.exports = {pollText, seatText, chartImage}
+module.exports = {pollText, seatText, coalitionText, chartImage}
